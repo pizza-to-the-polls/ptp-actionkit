@@ -1,0 +1,354 @@
+{% load actionkit_tags %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+   <!-- Google Tag Manager -->
+   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+   })(window,document,'script','dataLayer','GTM-K27N6B8');</script>
+
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+   <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
+    <title>{% block title %}{{ page.title }} | {% filter ak_text:"org_name" %}{% client_name %}{% endfilter %}{% endblock %}</title>
+
+    {% block meta_additions %}{% endblock %}
+    {% include 'ptp_styles.html' %}
+
+    {% load_css %}
+        //fonts.googleapis.com/css?family=Open+Sans:100,300,400,600,700
+        /media/modern/actionkit.css?1=22
+    {% end %}
+    {% block css_additions %}{% endblock %}
+
+    {% load_prefill %}
+    {% load_ak_context context %}
+    {% load_js %}
+        //ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js
+        /resources/actionkit.js
+    {% end %}
+
+   <meta name="application-name" content="Power the Polls" />
+   <meta property="og:title" content="Power the Polls" />
+   <meta property="og:site_name" content="Power the Polls" />
+
+   <meta name="twitter:card" content="summary" />
+   <meta name="twitter:site" content="@PowerThePolls" />
+
+   <meta property="og:url" content="https://powerthepolls.org" />
+
+   <meta name="description"
+      content="Our democracy depends on ordinary people who make sure elections run smoothly and everyone’s vote is counted. This year, we’re facing an unprecedented shortage of poll workers that could mean closed polling places and long delays. You can help make sure we have a safe, fair, efficient election for all voters.">
+   <meta property="og:description"
+      content="America is facing a record shortage of poll workers. Our democracy depends on ordinary people who make sure elections run smoothly and everyone’s vote is counted. This year, we’re facing an unprecedented shortage of poll workers that could mean closed polling places and long delays. You can help make sure we have a safe, fair, efficient election for all voters." />
+
+   <meta property="og:image" content="https://powerthepolls.org/assets/images/logo-brand.png" />
+   <meta property="og:image:secure_url" content="https://powerthepolls.org/assets/images/logo-brand.png" />
+   <meta name="theme-color" content="#16161d">
+
+   <script type="module" src="/build/app.esm.js"></script>
+   <script nomodule src="/build/app.js"></script>
+   <link href="/build/app.css" rel="stylesheet">
+
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/icon-57x57.png">
+   <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/icon-60x60.png">
+   <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icon-72x72.png">
+   <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/icon-76x76.png">
+   <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/icon-114x114.png">
+   <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/icon-120x120.png">
+   <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icon-144x144.png">
+   <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/icon-152x152.png">
+   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icon-180x180.png">
+
+   <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icon-192x192.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icon-32x32.png">
+   <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/icon-96x96.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icon-16x16.png">
+
+   <meta name="msapplication-TileColor" content="#ffffff">
+   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+
+   <link rel="manifest" href="/manifest.json">
+
+   <link rel="preconnect" href="https://www.google-analytics.com">
+
+
+    <style>
+
+    {% if templateset.custom_fields.font_size %}
+        html {
+            font-size: {{ templateset.custom_fields.font_size }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_page %}
+        div.ak-page-container {
+            background-color: {{ templateset.custom_fields.color_page }};
+        }
+        .ak-progress-meter .ak-progress-meter-border {
+            border-color: {{ templateset.custom_fields.color_page }};
+        }
+        .ak-whipcount-callbox .ak-whipcount-boxhead {
+            color: {{ templateset.custom_fields.color_page }};
+        }
+        @media (min-width:480px) {
+            body .ak-steps-area h3 div.ak-step-number {
+                color: {{ templateset.custom_fields.color_page }};
+            }
+        }
+        @media (max-width:479px) {
+            .ak-steps-area h3 {
+                color: {{ templateset.custom_fields.color_page }};
+            }
+            .ak-steps-area h3 div.ak-step-number {
+                background-color: {{ templateset.custom_fields.color_page }};
+            }
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_header %}
+        .ak-page-header {
+            background-color: {{ templateset.custom_fields.color_header }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_header_text %}
+        .ak-page-header {
+            color: {{ templateset.custom_fields.color_header_text }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_text %}
+        .ak-donate-menu input:checked + div.ak-step-number {
+            background: {{ templateset.custom_fields.color_text }};
+        }
+        .ak-whipcount-callbox .ak-whipcount-boxhead {
+            background-color: {{ templateset.custom_fields.color_text }};
+        }
+        @media (min-width:480px) {
+            .ak-steps-area h3 label.ak-step-label {
+                color: {{ templateset.custom_fields.color_text }};
+            }
+            .ak-steps-area h3 div.ak-step-number {
+                background-color: {{ templateset.custom_fields.color_text }};
+            }
+        }
+        @media (max-width:479px) {
+            .ak-steps-area h3 {
+                background: {{ templateset.custom_fields.color_text }};
+            }
+            .ak-steps-area h3 div.ak-step-number {
+                color: {{ templateset.custom_fields.color_text }};
+            }
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_text_faded %}
+        .ak-faded-text,
+        .ak-labels-overlaid label.ak-is-overlaid.active,
+        .ak-donate-step input:checked span {
+            color: {{ templateset.custom_fields.color_text_faded }};
+        }
+        .ak-donate-menu div.ak-step-number {
+            background-color: {{ templateset.custom_fields.color_text_faded }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_fieldbox %}
+        .ak-field-box,
+        .ak-accordion ul li {
+            background-color: {{ templateset.custom_fields.color_fieldbox }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_fieldbox_text %}
+        .ak-field-box,
+        .ak-accordion ul li {
+            color: {{ templateset.custom_fields.color_fieldbox_text }};
+        }
+        .ak-field-box .ak-donate-menu input:checked + div.ak-step-number {
+            background: {{ templateset.custom_fields.color_fieldbox_text }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_accentbox %}
+        #ak-whipcount-targets tbody tr,
+        .ak-newspaper-row,
+        .ak-signoff-box,
+        .ak-progress-meter .ak-progress-holder {
+            background-color: {{ templateset.custom_fields.color_accentbox }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_accentbox_text %}
+        #ak-whipcount-targets tbody tr,
+        .ak-newspaper-row,
+        .ak-signoff-box {
+            color: {{ templateset.custom_fields.color_accentbox_text }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_amount %}
+        #ak-amount-list li label {
+            background: {{ templateset.custom_fields.color_amount }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_amount_hover %}
+        #ak-amount-list li label:hover,
+        #ak-amount-list li label.ak-radio-checked,
+        div#ak-amount-list label[for="amount_other_field"].ak-radio-checked {
+            background-color: {{ templateset.custom_fields.color_amount_hover }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_progress %}
+        .ak-progress-meter .ak-progress-bar {
+            background-color: {{ templateset.custom_fields.color_progress }};
+        }
+        .ak-progress-meter .ak-progress-percent {
+            color: {{ templateset.custom_fields.color_progress }};
+        }
+    {% endif %}
+    {% if templateset.custom_fields.color_error %}
+        #ak-errors,
+        .ak-errors {
+            background-color: {{ templateset.custom_fields.color_error }};
+        }
+        .ak-styled-fields input[type="text"].ak-error,
+        .ak-styled-fields input[type="password"].ak-error,
+        .ak-styled-fields input[type="number"].ak-error,
+        .ak-styled-fields input[type="email"].ak-error,
+        .ak-styled-fields textarea.ak-error,
+        .ak-styled-fields select.ak-error,
+        input.ak-error,
+        select.ak-error,
+        textarea.ak-error {
+            border-color: {{ templateset.custom_fields.color_error }};
+        }
+        .ak-err,
+        .ak-color-error,
+        span.ak-error,
+        label.ak-error,
+        .ak-labels-overlaid input.ak-error,
+        .ak-labels-overlaid label.ak-error,
+        .ak-labels-before label.ak-error,
+        .ak-styled-fields select.ak-error,
+        ul.errorlist.ak-errors,
+        ul.errorlist li {
+            color: {{ templateset.custom_fields.color_error }};
+        }
+    {% endif %}
+    .ak-target-phone .ak-target-label, span.office_phone_label,
+        span.ak-target-fax, span.ak-target-separator { display: none }
+    .ak-event-description, .ak-event-note-to-attendees, .ak-event-directions { white-space: pre-line; }
+
+        html,
+        body.body {
+          font-family: 'Work Sans', sans-serif;
+          color: #fff;
+          background: #000;
+        }
+
+        .logo--ak {
+            width: 100%;
+            max-width: 250px;
+            margin-bottom: 16px;
+        }
+
+        .body__article {
+            margin-top: 0;
+        }
+        form {
+            max-width: none;
+        }
+        .body__article {
+            max-width: 800px;
+        }
+        .home-link {
+            display: inline-block;
+        }
+        @media only screen and (min-width: 35em) {
+            h2 {
+                margin-top: 32px;
+            }
+        }
+        </style>
+</head>
+
+<body class="body ak-pagetype-{{ filename|split:'.'|nth:0 }} ak-lang-{{page.lang.iso_code|default:"unknown"}}{% if page.lang.is_rtl %} ak-rtl{% endif %} ak-no-js {% block body_extra_classes %}{% endblock %}">
+    <script type="text/javascript">
+        actionkit.forms.initPage()
+    </script>
+
+    <app-root class="hydrated">
+      <div class="container">
+        <a class="u_visually-hidden" href="#main-content">Skip to main content</a>
+        <aside class="sidebar">
+          <div class="container">
+            <h1>
+              <a class="link-active" href="https://powerthepolls.org/">
+                <img class="logo" alt="Power the Polls" src="https://powerthepolls.org/assets/images/logo-blue.svg">
+              </a>
+            </h1>
+            <nav aria-label="Main">
+              <ul>
+                  <li><a class="" href="https://powerthepolls.org/signup#form">Sign Up</a></li>
+                  <li><a class="" href="https://powerthepolls.org/about">About</a></li>
+                  <li><a class="" href="https://powerthepolls.org/faq">FAQ</a></li>
+                  <li><a class="" href="https://powerthepolls.org/partners">Partners</a></li>
+                  <li><a class="" href="https://powerthepolls.org/contact">Contact</a></li>
+              </ul>
+            </nav>
+            <social-share class="hydrated">
+              <a href="https://twitter.com/intent/tweet?text=%0A%F0%9F%97%B3%EF%B8%8F%20Join%20me%20and%20make%20sure%20our%20election%20runs%20smoothly!%0A%F0%9F%9A%A8%20Prevent%20voting%20location%20closures%20and%20long%20lines%20at%20the%20polls.%0A%E2%96%B6%EF%B8%8F%20https%3A%2F%2Fwww.powerthepolls.org%0A%23PowerThePolls%0A" title="Share on Twitter" target="_blank" rel="noopener noreferrer">
+                <img alt="Twitter" src="https://powerthepolls.org/assets/images/social/icon-tw.png" width="41" height="41">
+                <span>Tweet</span>
+              </a>
+            </social-share>
+            <social-share class="hydrated">
+              <a href="https://www.instagram.com/powerthepolls/" title="Share on Instagram" target="_blank" rel="noopener noreferrer">
+                <img alt="Instagram" src="https://powerthepolls.org/assets/images/social/icon-ig.png" width="41" height="41">
+                <span>Instagram</span>
+              </a>
+            </social-share>
+            <social-share class="hydrated">
+              <a href="https://www.facebook.com/share.php?u=https%3A%2F%2Fwww.powerthepolls.org%2F" title="Share on Facebook" target="_blank" rel="noopener noreferrer">
+                <img alt="Facebook" src="https://powerthepolls.org/assets/images/social/icon-fb.png" width="41" height="41">
+                <span>Share</span>
+              </a>
+            </social-share>
+          </div>
+        </aside>
+        <main>
+          <div class="mobile-menu">
+            <div class="header">
+              <h1>
+                <a class="link-active" href="https://powerthepolls.org/">
+                  <img alt="Power the Polls" src="https://powerthepolls.org/assets/images/icon-white.svg" width="25" style="display: block;">
+                  <img alt="Power the Polls" src="https://powerthepolls.org/assets/images/icon-blue.svg" width="25" style="display: none;">
+                </a>
+              </h1>
+              <button class="hamburger hamburger--spin" type="button" aria-label="Show navigation menu">
+                <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+              </button>
+            </div>
+            <nav aria-label="Main">
+                <ul>
+                  <li><a class="" href="https://powerthepolls.org/signup#form">Sign Up</a></stencil-route-link></li>
+                  <li><a class="" href="https://powerthepolls.org/about">About</a></stencil-route-link></li>
+                  <li><a class="" href="https://powerthepolls.org/faq">FAQ</a></stencil-route-link></li>
+                  <li><a class="" href="https://powerthepolls.org/partners">Partners</a></stencil-route-link></li>
+                  <li><a class="" href="https://powerthepolls.org/contact">Contact</a></stencil-route-link></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="container" id="main-content" tabindex="-1">
+            {% block content %}{% endblock %}
+
+          </div>
+        </main>
+      </div>
+    </app-root>
+
+
+   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-170710177-1"></script>
+   <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-170710177-1');</script>
+
+</body>
+</html>

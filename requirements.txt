@@ -1,0 +1,7 @@
+-e git://github.com/MoveOnOrg/actionkit-templates@eeea69f37c7b5e1c424e2cd4d36a6d15a9902e20#egg=actionkit_templates
+certifi==2020.6.20
+chardet==3.0.4
+Django==1.8
+idna==2.8
+requests==2.22.0
+urllib3==1.25.10
