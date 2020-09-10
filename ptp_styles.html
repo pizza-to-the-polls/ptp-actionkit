@@ -15,6 +15,10 @@
 .ak-user-form > div {
     margin: 30px 0;
 }
+.ak-styled-fields > div label {
+  text-transform: uppercase;
+}
+.ak-required-flag { padding: 0 8px; }
 .ak-styled-fields > div label,
 .ak-user-form > div label {
     min-width: 120px;
@@ -25,6 +29,17 @@
 .ak-user-form > div input {
    min-width: 200px;
    width: 70%;
+   padding: 0.5em 0.75em;
+}
+.ak-user-form > div input[type=checkbox],
+.ak-styled-fields > div input[type=checkbox] {
+  width: inherit;
+  min-width: inherit;
+}
+.ak-user-form > div input[type=checkbox] + label,
+.ak-styled-fields > div input[type=checkbox] + label {
+  width: 85%;
+  min-width: inherit;
 }
 .ak-styled-fields button[type=submit],
 .action_form button[type=submit] {
@@ -40,4 +55,5 @@
     font-weight: bold;
     cursor: pointer;
 }
+#known_user { display: none; }
 </style>
